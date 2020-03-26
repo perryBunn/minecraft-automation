@@ -1,2 +1,2 @@
 #!/bin/bash
-screen -d -m -S server.sh
+screen -d -m -S controller server.sh

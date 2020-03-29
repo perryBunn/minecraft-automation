@@ -1,0 +1,11 @@
+world/
+logs/
+*.logs
+banned-*.json
+eula.txt
+ops.json
+*.jar
+server.properties
+*.tar.gz
+usercache.json
+whitelist.json

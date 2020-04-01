@@ -1,11 +1,24 @@
-world/
 logs/
 *.logs
+
+# Pytest
+.pytest_cache/
+__pycache__/
+*.pyc
+
+# Screen
+screenlog.0
+
+# Minecraft
+world/
 banned-*.json
 eula.txt
 ops.json
 *.jar
 server.properties
-*.tar.gz
 usercache.json
 whitelist.json
+
+# Archive
+*.tar.gz
+*.tar

@@ -22,11 +22,11 @@ logger () {
 	now=$(date +%F)
 
 	logFile="./logs/driverlog-${now}.log"
-	if ! test -f $logFile; then
-		touch $logFile
+	if ! test -f "$logFile"; then
+		touch "$logFile"
 	fi
-	echo $message
-	echo $message >> $logFile
+	echo "$message"
+	echo "$message" >> "$logFile"
 }
 
 #######################################
@@ -103,19 +103,19 @@ main() {
 	stopTime="23:45"
 	sleep 5s
 
-	while [[ true ]]; do
+	while true ; do
 
 		hourlyTime=$(date +%H:00)
 		currentTime=$(date +%H:%M)
 
-		if [[ $currentTime = $startTime ]]; then
+		if [[ "$currentTime" = "$startTime" ]]; then
 			logger "Starting server"
 			screen -d -m -S mcs java -Xmx1500M -jar server.jar nogui
 			sleep 60s
 			logger "Server started"
 		fi
 
-		if [[ $currentTime == $hourlyTime ]]; then
+		if [[ "$currentTime" == "$hourlyTime" ]]; then
 			logger "Starting saveServer"
 			screen -r mcs -X stuff '/say Server backup starting...\n'
 			saveServer
@@ -124,7 +124,7 @@ main() {
 			logger "End saveServer"
 		fi
 
-		if [[ $currentTime == $stopTime ]]; then
+		if [[ "$currentTime" == "$stopTime" ]]; then
 			logger "Starting serverWarnClose"
 			serverWarnClose
 			sleep 60s
